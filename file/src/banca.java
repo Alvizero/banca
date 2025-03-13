@@ -391,6 +391,4 @@ public class banca {
 		tastiera.close();
 		sc.close();
 	}
-	
-
 }
