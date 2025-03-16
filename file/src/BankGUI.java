@@ -7,53 +7,53 @@ import java.util.*;
 public class BankGUI extends JFrame {
     private CardLayout cardLayout;
     private JPanel cardPanel, loginPanel, mainPanel;
-    
+
     private Map<String, Utente> utenti;
     private Utente currentUser;
     private Random random;
-    
+
     // Componenti per la vista principale
     private JTextArea infoArea;
     private JPanel buttonPanel;
-    
+
     public BankGUI() {
         super("Gestione Banca");
         random = new Random();
         utenti = GestioneUtenti.loadUtenti();
         cardLayout = new CardLayout();
         cardPanel = new JPanel(cardLayout);
-        
+
         // Crea i due pannelli: login/registrazione e pannello principale
         loginPanel = createLoginPanel();
         mainPanel = createMainPanel();
-        
+
         cardPanel.add(loginPanel, "login");
         cardPanel.add(mainPanel, "main");
         add(cardPanel);
-        
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 400);
+        setSize(700, 500);
         setLocationRelativeTo(null);
         setVisible(true);
     }
-    
+
     // Crea il pannello di login e registrazione usando un JTabbedPane
     private JPanel createLoginPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         JTabbedPane tabbedPane = new JTabbedPane();
-        
+
         // Tab "Login"
         JPanel loginTab = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5,5,5,5);
+        gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        
+
         JLabel userLabel = new JLabel("Username:");
         JLabel passLabel = new JLabel("Password:");
         JTextField userField = new JTextField(15);
         JPasswordField passField = new JPasswordField(15);
         JButton loginButton = new JButton("Accedi");
-        
+
         gbc.gridx = 0;
         gbc.gridy = 0;
         loginTab.add(userLabel, gbc);
@@ -67,8 +67,8 @@ public class BankGUI extends JFrame {
         gbc.gridx = 1;
         gbc.gridy = 2;
         loginTab.add(loginButton, gbc);
-        
-        loginButton.addActionListener(new ActionListener(){
+
+        loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = userField.getText().trim();
                 String password = new String(passField.getPassword()).trim();
@@ -82,15 +82,15 @@ public class BankGUI extends JFrame {
                 }
             }
         });
-        
+
         tabbedPane.addTab("Login", loginTab);
-        
+
         // Tab "Registrazione"
         JPanel regTab = new JPanel(new GridBagLayout());
         GridBagConstraints gbc2 = new GridBagConstraints();
-        gbc2.insets = new Insets(5,5,5,5);
+        gbc2.insets = new Insets(5, 5, 5, 5);
         gbc2.fill = GridBagConstraints.HORIZONTAL;
-        
+
         JLabel nomeLabel = new JLabel("Nome:");
         JLabel cognomeLabel = new JLabel("Cognome:");
         JLabel etaLabel = new JLabel("Età:");
@@ -102,7 +102,7 @@ public class BankGUI extends JFrame {
         JTextField userRegField = new JTextField(15);
         JPasswordField passRegField = new JPasswordField(15);
         JButton regButton = new JButton("Registrati");
-        
+
         gbc2.gridx = 0;
         gbc2.gridy = 0;
         regTab.add(nomeLabel, gbc2);
@@ -131,8 +131,8 @@ public class BankGUI extends JFrame {
         gbc2.gridx = 1;
         gbc2.gridy = 5;
         regTab.add(regButton, gbc2);
-        
-        regButton.addActionListener(new ActionListener(){
+
+        regButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String nome = nomeField.getText().trim();
                 String cognome = cognomeField.getText().trim();
@@ -151,20 +151,21 @@ public class BankGUI extends JFrame {
                 }
             }
         });
-        
+
         tabbedPane.addTab("Registrazione", regTab);
         panel.add(tabbedPane, BorderLayout.CENTER);
         return panel;
     }
-    
-    // Crea il pannello principale con la parte superiore (info utente) e quella inferiore (bottoni opzioni)
+
+    // Crea il pannello principale con la parte superiore (info utente) e quella
+    // inferiore (bottoni opzioni)
     private JPanel createMainPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         infoArea = new JTextArea();
         infoArea.setEditable(false);
         infoArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
         panel.add(new JScrollPane(infoArea), BorderLayout.NORTH);
-        
+
         // Pannello bottoni: 8 opzioni distribuite in 2 righe
         buttonPanel = new JPanel(new GridLayout(2, 4, 5, 5));
         JButton btnPreleva = new JButton("Preleva dalla banca");
@@ -175,7 +176,7 @@ public class BankGUI extends JFrame {
         JButton btnStorico = new JButton("Visualizza storico");
         JButton btnLogout = new JButton("Logout");
         JButton btnEsci = new JButton("Esci");
-        
+
         buttonPanel.add(btnPreleva);
         buttonPanel.add(btnDeposita);
         buttonPanel.add(btnInvesti);
@@ -185,11 +186,11 @@ public class BankGUI extends JFrame {
         buttonPanel.add(btnLogout);
         buttonPanel.add(btnEsci);
         panel.add(buttonPanel, BorderLayout.SOUTH);
-        
+
         // Azioni dei bottoni
-        btnPreleva.addActionListener(new ActionListener(){
+        btnPreleva.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String sPrelevare  = JOptionPane.showInputDialog(BankGUI.this, "Inserisci l'importo da prelevare:");
+                String sPrelevare = JOptionPane.showInputDialog(BankGUI.this, "Inserisci l'importo da prelevare:");
                 if (sPrelevare != null) {
                     try {
                         double preleva = Double.parseDouble(sPrelevare);
@@ -198,18 +199,20 @@ public class BankGUI extends JFrame {
                         } else {
                             currentUser.getConto().preleva(preleva);
                             JOptionPane.showMessageDialog(BankGUI.this, "Hai prelevato: " + preleva + " €");
-                            StoricoTransazioni.aggiungiTransazione(currentUser.getUsername(), "Prelievo: " + preleva + "€ (Banca: " + currentUser.getConto().getBanca() +", Portafoglio: " + currentUser.getConto().getPortafoglio() + ")");
+                            StoricoTransazioni.aggiungiTransazione(currentUser.getUsername(),
+                                    "Prelievo: " + preleva + "€ (Banca: " + currentUser.getConto().getBanca()
+                                            + ", Portafoglio: " + currentUser.getConto().getPortafoglio() + ")");
                             GestioneUtenti.saveUtenti(utenti);
                             refreshUserInfo();
                         }
-                    } catch(NumberFormatException ex) {
+                    } catch (NumberFormatException ex) {
                         JOptionPane.showMessageDialog(BankGUI.this, "Il valore inserito non è un numero decimale!");
                     }
                 }
             }
         });
-        
-        btnDeposita.addActionListener(new ActionListener(){
+
+        btnDeposita.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String sDepositare = JOptionPane.showInputDialog(BankGUI.this, "Inserisci l'importo da depositare:");
                 if (sDepositare != null) {
@@ -220,18 +223,20 @@ public class BankGUI extends JFrame {
                         } else {
                             currentUser.getConto().deposita(deposita);
                             JOptionPane.showMessageDialog(BankGUI.this, "Hai depositato: " + deposita + " €");
-                            StoricoTransazioni.aggiungiTransazione(currentUser.getUsername(), "Deposito: " + deposita + "€ (Banca: " + currentUser.getConto().getBanca() + ", Portafoglio: " + currentUser.getConto().getPortafoglio() + ")");
+                            StoricoTransazioni.aggiungiTransazione(currentUser.getUsername(),
+                                    "Deposito: " + deposita + "€ (Banca: " + currentUser.getConto().getBanca()
+                                            + ", Portafoglio: " + currentUser.getConto().getPortafoglio() + ")");
                             GestioneUtenti.saveUtenti(utenti);
                             refreshUserInfo();
                         }
-                    } catch(NumberFormatException ex) {
+                    } catch (NumberFormatException ex) {
                         JOptionPane.showMessageDialog(BankGUI.this, "Il valore inserito non è un numero decimale!");
                     }
                 }
             }
         });
-        
-        btnInvesti.addActionListener(new ActionListener(){
+
+        btnInvesti.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (currentUser.getConto().getInvestimento() == true) {
                     JOptionPane.showMessageDialog(BankGUI.this, "Hai gia' un investimento aperto!");
@@ -245,10 +250,12 @@ public class BankGUI extends JFrame {
                         try {
                             double importoInvestito = Double.parseDouble(sInvestiti);
                             if (importoInvestito > currentUser.getConto().getBanca() || importoInvestito <= 0) {
-                                JOptionPane.showMessageDialog(BankGUI.this, "Importo non valido o fondi insufficienti.");
+                                JOptionPane.showMessageDialog(BankGUI.this,
+                                        "Importo non valido o fondi insufficienti.");
                                 return;
                             }
-                            String mesiInput = JOptionPane.showInputDialog(BankGUI.this, "Inserisci il periodo di investimento (in mesi):");
+                            String mesiInput = JOptionPane.showInputDialog(BankGUI.this,
+                                    "Inserisci il periodo di investimento (in mesi):");
                             if (mesiInput != null) {
                                 int investimentiMesi = Integer.parseInt(mesiInput);
                                 if (investimentiMesi <= 0) {
@@ -256,20 +263,24 @@ public class BankGUI extends JFrame {
                                     return;
                                 }
                                 currentUser.getConto().investe(importoInvestito, investimentiMesi, random);
-                                JOptionPane.showMessageDialog(BankGUI.this, "Hai iniziato l'investimento! \nSoldi investiti: " + importoInvestito + " € \nDurata Investimento: " + investimentiMesi);
-                                StoricoTransazioni.aggiungiTransazione(currentUser.getUsername(), "Investimento iniziato: " + importoInvestito + "€ per " + investimentiMesi + " mesi");
+                                JOptionPane.showMessageDialog(BankGUI.this,
+                                        "Hai iniziato l'investimento! \nSoldi investiti: " + importoInvestito
+                                                + " € \nDurata Investimento: " + investimentiMesi);
+                                StoricoTransazioni.aggiungiTransazione(currentUser.getUsername(),
+                                        "Investimento iniziato: " + importoInvestito + "€ per " + investimentiMesi
+                                                + " mesi");
                                 GestioneUtenti.saveUtenti(utenti);
                                 refreshUserInfo();
                             }
-                        } catch(NumberFormatException ex) {
+                        } catch (NumberFormatException ex) {
                             JOptionPane.showMessageDialog(BankGUI.this, "Errore: inserisci un numero valido.");
                         }
                     }
                 }
             }
         });
-        
-        btnConcludi.addActionListener(new ActionListener(){
+
+        btnConcludi.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (currentUser.getConto().getInvestimento() == true) {
                     currentUser.getConto().fineInvestimento();
@@ -284,44 +295,46 @@ public class BankGUI extends JFrame {
             }
         });
 
-        btnAvanza.addActionListener(new ActionListener(){
+        btnAvanza.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 currentUser.getConto().nextMonth();
                 JOptionPane.showMessageDialog(BankGUI.this, "Sei avanzato di un mese");
-                StoricoTransazioni.aggiungiTransazione(currentUser.getUsername(), "Avanzamento mese: nuovo stato - " + currentUser.getConto().statoConto().replace("\n", " | "));
+                StoricoTransazioni.aggiungiTransazione(currentUser.getUsername(),
+                        "Avanzamento mese: nuovo stato - " + currentUser.getConto().statoConto().replace("\n", " | "));
                 GestioneUtenti.saveUtenti(utenti);
                 refreshUserInfo();
             }
         });
 
-        btnStorico.addActionListener(new ActionListener(){
+        btnStorico.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String storico = StoricoTransazioni.visualizzaStorico(currentUser.getUsername());
                 JTextArea textArea = new JTextArea(storico);
                 textArea.setEditable(false);
                 JScrollPane scrollPane = new JScrollPane(textArea);
                 scrollPane.setPreferredSize(new Dimension(500, 400));
-                JOptionPane.showMessageDialog(BankGUI.this, scrollPane, "Storico Transazioni", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(BankGUI.this, scrollPane, "Storico Transazioni",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         });
-        
-        btnLogout.addActionListener(new ActionListener(){
+
+        btnLogout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(BankGUI.this, "Sei uscito!");
                 currentUser = null;
                 cardLayout.show(cardPanel, "login");
             }
         });
-        
-        btnEsci.addActionListener(new ActionListener(){
+
+        btnEsci.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
-        
+
         return panel;
     }
-    
+
     // Aggiorna la parte superiore della finestra con le informazioni dell'utente
     private void refreshUserInfo() {
         if (currentUser != null) {
@@ -334,12 +347,14 @@ public class BankGUI extends JFrame {
             infoArea.setText(sb.toString());
         }
     }
-    
-    /*public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable(){
-            public void run() {
-                new BankGUI();
-            }
-        });
-    }*/
+
+    /*
+     * public static void main(String[] args) {
+     * SwingUtilities.invokeLater(new Runnable(){
+     * public void run() {
+     * new BankGUI();
+     * }
+     * });
+     * }
+     */
 }

@@ -1,15 +1,14 @@
 import java.util.Random;
 
 public class ContoBancario {
-    // Stato del conto
     private double banca, portafoglio;
     private int mese, anno;
-    
+
     // Variabili per investimento
     private int mesiInvestimento;
     private double saldoFinale, variazione;
     private boolean durataInvestimento, haGuadagnato, rosso;
-    
+
     public ContoBancario() {
         this.banca = 0.0;
         this.portafoglio = 100.0;
@@ -22,53 +21,60 @@ public class ContoBancario {
         this.haGuadagnato = false;
         this.rosso = false;
     }
-    
-    // Metodi getter e setter (necessari per la persistenza su CSV)
+
     public double getBanca() {
         return banca;
     }
+
     public void setBanca(double banca) {
         this.banca = banca;
     }
+
     public double getPortafoglio() {
         return portafoglio;
     }
+
     public void setPortafoglio(double portafoglio) {
         this.portafoglio = portafoglio;
     }
+
     public int getMese() {
         return mese;
     }
+
     public void setMese(int mese) {
         this.mese = mese;
     }
+
     public int getAnno() {
         return anno;
     }
+
     public void setAnno(int anno) {
         this.anno = anno;
     }
+
     public boolean getInvestimento() {
         return durataInvestimento;
     }
-    
+
     // Operazioni sul conto
     public void preleva(double preleva) {
         portafoglio += preleva;
         banca -= preleva;
     }
-    
+
     public void deposita(double amount) {
         banca += amount;
         portafoglio -= amount;
     }
-    
+
     // Simula un investimento
-    public void investe(double importoInvestito, int investimentiMesi, Random random) {        
+    public void investe(double importoInvestito, int investimentiMesi, Random random) {
         durataInvestimento = true;
         mesiInvestimento = investimentiMesi;
         banca -= importoInvestito;
-        
+
         String tipoInvestimento;
         if (mesiInvestimento <= 12) {
             tipoInvestimento = "Breve";
@@ -77,11 +83,11 @@ public class ContoBancario {
         } else {
             tipoInvestimento = "Lungo";
         }
-        
+
         double percentualeGuadagno = 0;
         double percentualePerdita = 0;
         haGuadagnato = false;
-        
+
         int esito = random.nextInt(100) + 1;
         switch (tipoInvestimento) {
             case "Breve": {
@@ -114,14 +120,14 @@ public class ContoBancario {
                 break;
             }
         }
-        
+
         if (haGuadagnato) {
             variazione = importoInvestito * (percentualeGuadagno / 100);
         } else {
             variazione = importoInvestito * (percentualePerdita / 100);
         }
         variazione = Math.round(variazione * 100.0) / 100.0;
-        
+
         if (haGuadagnato) {
             rosso = false;
             saldoFinale = importoInvestito + variazione;
@@ -135,17 +141,17 @@ public class ContoBancario {
             }
         }
     }
-    
+
     // Conclude l'investimento e aggiorna il conto
     public void fineInvestimento() {
         if (durataInvestimento) {
             mese += mesiInvestimento;
             portafoglio += (100 * mesiInvestimento);
-            
+
             if (!rosso) {
-                banca += saldoFinale;
+                banca += Math.round(saldoFinale * 100.0) / 100.0; // Lascia solo le 2 cifre dopo la virgola
             } else {
-                banca -= saldoFinale;
+                banca -= Math.round(saldoFinale * 100.0) / 100.0; // Lascia solo le 2 cifre dopo la virgola
             }
             durataInvestimento = false;
             mesiInvestimento = 0;
@@ -155,12 +161,12 @@ public class ContoBancario {
             rosso = false;
         }
     }
-    
+
     // Avanza di un mese
     public void nextMonth() {
         mese++;
         portafoglio += 100;
-        
+
         if (durataInvestimento && mesiInvestimento > 0) {
             mesiInvestimento--;
         }
@@ -169,9 +175,10 @@ public class ContoBancario {
             anno++;
         }
     }
-    
+
     // Restituisce lo stato corrente del conto
     public String statoConto() {
-        return "Data: " + mese + "/" + anno + "\n" + "Soldi in banca: " + banca + "€\n" + "Soldi nel portafoglio: " + portafoglio + "€\n";
+        return "Data: " + mese + "/" + anno + "\n" + "Soldi in banca: " + banca + "€\n" + "Soldi nel portafoglio: "
+                + portafoglio + "€\n";
     }
 }

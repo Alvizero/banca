@@ -1,22 +1,22 @@
 public class Utente {
-	private String Nome, Cognome, eta, username, password;
+    private String nome, cognome, eta, username, password;
     private ContoBancario conto;
-    
-    public Utente(String Nome, String Cognome, String eta, String username, String password) {
-        this.Nome = Nome;
-        this.Cognome = Cognome;
-    	this.eta=eta;
-    	this.username = username;
+
+    public Utente(String nome, String cognome, String eta, String username, String password) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.eta = eta;
+        this.username = username;
         this.password = password;
         this.conto = new ContoBancario();
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public String getCognome() {
-        return Cognome;
+        return cognome;
     }
 
     public String getEta() {
@@ -30,20 +30,24 @@ public class Utente {
     public String getPassword() {
         return password;
     }
-    
+
     public ContoBancario getConto() {
         return conto;
     }
-    
+
     public String toCSV() {
-        return Nome + "," + Cognome + "," + eta + "," + username + "," + password + "," + conto.getBanca() + "," + conto.getPortafoglio() + "," + conto.getMese() + "," + conto.getAnno();
+        return nome + "," + cognome + "," + eta + "," + username + "," + password + "," + conto.getBanca() + ","
+                + conto.getPortafoglio() + "," + conto.getMese() + "," + conto.getAnno();
     }
-    
+
     public static Utente fromCSV(String line) {
-        String[] parts = line.split(",");
-        if(parts.length < 9) return null;  // Verifica che i dati siano completi
-        String Nome = parts[0];
-        String Cognome = parts[1];
+        String[] parts = line.split(","); // Carattere separatore
+        if (parts.length < 9)
+            return null; // Restituisce null se i dati sono incompleti
+
+        // Assegna i valori presi dalla stringa (csv) alle variabili
+        String nome = parts[0];
+        String cognome = parts[1];
         String eta = parts[2];
         String username = parts[3];
         String password = parts[4];
@@ -52,12 +56,12 @@ public class Utente {
         int mese = Integer.parseInt(parts[7]);
         int anno = Integer.parseInt(parts[8]);
 
-        Utente u = new Utente(Nome, Cognome, eta, username, password);
-        u.getConto().setBanca(banca);
-        u.getConto().setPortafoglio(portafoglio);
-        u.getConto().setMese(mese);
-        u.getConto().setAnno(anno);
-        
-        return u;
+        Utente utente = new Utente(nome, cognome, eta, username, password);
+        utente.getConto().setBanca(banca);
+        utente.getConto().setPortafoglio(portafoglio);
+        utente.getConto().setMese(mese);
+        utente.getConto().setAnno(anno);
+
+        return utente; // Restituisce l'oggetto utente
     }
 }

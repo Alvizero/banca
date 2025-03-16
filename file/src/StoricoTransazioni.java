@@ -3,43 +3,27 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class StoricoTransazioni {
+    private static final String DIRECTORY_PATH = "File/Transazioni";
 
-    // Aggiunge (in append) una riga al file di storico specifico per l'utente nella cartella "File/Transazioni"
+    // Aggiunge (in append) una transazione nel file storico specifico per l'utente
     public static void aggiungiTransazione(String username, String transazione) {
-        // Crea la cartella "File/Transazioni" se non esiste
-        File cartella = new File("File/Transazioni");
-        if (!cartella.exists()) {
-            cartella.mkdir();  // Crea la cartella se non esiste
-        }
+        Tools.FileManager.creaCartella(DIRECTORY_PATH); // Verifica anche l'esistenza della cartella
 
-        String fileName = "File/Transazioni/" + username + "_storico.txt";
-        try (FileWriter fw = new FileWriter(fileName, true);
-             BufferedWriter bw = new BufferedWriter(fw);
-             PrintWriter out = new PrintWriter(bw)) {
-            // Aggiungiamo anche data e ora attuali
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-            String now = LocalDateTime.now().format(formatter);
-            out.println(now + " - " + transazione);
-        } catch (IOException e) {
-            System.out.println("Errore nel salvataggio della transazione: " + e.getMessage());
-        }
+        String fileName = DIRECTORY_PATH + "/" + username + "_storico.txt";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        String now = LocalDateTime.now().format(formatter);
+        String transazioneCompleta = now + " - " + transazione;
+
+        Tools.FileManager.scriviSuFile(fileName, transazioneCompleta, true);
     }
 
+    // Visualizza lo storico delle transazioni di un utente
     public static String visualizzaStorico(String username) {
-        StringBuilder storico = new StringBuilder();
-        String fileName = "File/Transazioni/" + username + "_storico.txt";
+        String fileName = DIRECTORY_PATH + "/" + username + "_storico.txt";
         File file = new File(fileName);
         if (!file.exists()) {
             return "Nessuno storico presente per l'utente " + username;
         }
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                storico.append(line).append("\n");
-            }
-        } catch (IOException e) {
-            return "Errore nella lettura dello storico: " + e.getMessage();
-        }
-        return storico.toString();
+        return Tools.FileManager.leggiDaFile(fileName);
     }
 }
