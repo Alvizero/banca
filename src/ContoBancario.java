@@ -140,19 +140,28 @@ public class ContoBancario {
                 saldoFinale = variazione - importoInvestito;
             }
         }
+
     }
 
     // Conclude l'investimento e aggiorna il conto
     public void fineInvestimento() {
         if (durataInvestimento) {
             mese += mesiInvestimento;
-            portafoglio += (100 * mesiInvestimento);
-
-            if (!rosso) {
-                banca += Math.round(saldoFinale * 100.0) / 100.0; // Lascia solo le 2 cifre dopo la virgola
-            } else {
-                banca -= Math.round(saldoFinale * 100.0) / 100.0; // Lascia solo le 2 cifre dopo la virgola
+    
+            // Correggere il passaggio all'anno successivo
+            while (mese > 12) {
+                mese -= 12;
+                anno++;
             }
+    
+            portafoglio += (100 * mesiInvestimento);
+    
+            if (!rosso) {
+                banca += Math.round(saldoFinale * 100.0) / 100.0;
+            } else {
+                banca -= Math.round(saldoFinale * 100.0) / 100.0;
+            }
+    
             durataInvestimento = false;
             mesiInvestimento = 0;
             saldoFinale = 0.0;
@@ -161,7 +170,7 @@ public class ContoBancario {
             rosso = false;
         }
     }
-
+    
     // Avanza di un mese
     public void nextMonth() {
         mese++;

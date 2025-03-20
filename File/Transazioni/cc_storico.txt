@@ -1,1 +1,18 @@
 19/03/2025 10:17 - Deposito: 22.0€ (Banca: 22.0, Portafoglio: 78.0)
+20/03/2025 12:21 - Investimento iniziato: 20.0€ per 34 mesi
+20/03/2025 12:22 - Avanzamento mese: nuovo stato - Data: 3/2025 | Soldi in banca: 2.0€ | Soldi nel portafoglio: 278.0€ | 
+20/03/2025 12:22 - Avanzamento mese: nuovo stato - Data: 4/2025 | Soldi in banca: 2.0€ | Soldi nel portafoglio: 378.0€ | 
+20/03/2025 12:22 - Deposito: 300.0€ (Banca: 302.0, Portafoglio: 78.0)
+20/03/2025 12:22 - Investimento iniziato: 30.0€ per 20 mesi
+20/03/2025 12:23 - Investimento iniziato: 22.0€ per 22 mesi
+20/03/2025 12:23 - Investimento concluso.
+20/03/2025 12:23 - Avanzamento mese: nuovo stato - Data: 15/2026 | Soldi in banca: 256.75€ | Soldi nel portafoglio: 2378.0€ | 
+20/03/2025 12:23 - Avanzamento mese: nuovo stato - Data: 4/2027 | Soldi in banca: 256.75€ | Soldi nel portafoglio: 2478.0€ | 
+20/03/2025 12:23 - Avanzamento mese: nuovo stato - Data: 5/2027 | Soldi in banca: 256.75€ | Soldi nel portafoglio: 2578.0€ | 
+20/03/2025 12:23 - Avanzamento mese: nuovo stato - Data: 6/2027 | Soldi in banca: 256.75€ | Soldi nel portafoglio: 2678.0€ | 
+20/03/2025 12:23 - Avanzamento mese: nuovo stato - Data: 7/2027 | Soldi in banca: 256.75€ | Soldi nel portafoglio: 2778.0€ | 
+20/03/2025 12:23 - Avanzamento mese: nuovo stato - Data: 8/2027 | Soldi in banca: 256.75€ | Soldi nel portafoglio: 2878.0€ | 
+20/03/2025 12:23 - Avanzamento mese: nuovo stato - Data: 9/2027 | Soldi in banca: 256.75€ | Soldi nel portafoglio: 2978.0€ | 
+20/03/2025 12:26 - Investimento iniziato: 200.0€ per 20 mesi
+20/03/2025 12:26 - Investimento concluso.
+20/03/2025 12:26 - Avanzamento mese: nuovo stato - Data: 6/2029 | Soldi in banca: 316.98€ | Soldi nel portafoglio: 5078.0€ | 
