@@ -141,6 +141,8 @@ public class BankGUI extends JFrame {
                 String password = new String(passRegField.getPassword()).trim();
                 if (utenti.containsKey(username)) {
                     JOptionPane.showMessageDialog(BankGUI.this, "Username già esistente. Riprova.");
+                } else if (!eta.matches("\\d+") || Integer.parseInt(eta) < 18) {
+                    JOptionPane.showMessageDialog(BankGUI.this, "Devi almeno avere 18 anni. Riprova.");
                 } else {
                     currentUser = new Utente(nome, cognome, eta, username, password);
                     utenti.put(username, currentUser);
