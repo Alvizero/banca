@@ -14,16 +14,15 @@ public class ContoBancarioTest {
     @Test
     public void testDeposita() {
         conto.deposita(50.0);
-        assertEquals(50.0, conto.getBanca(), 0.01);
-        assertEquals(50.0, conto.getPortafoglio(), 0.01);
+        assertEquals(50.0, conto.getBanca(), 0.01); // Verifica che l'importo sia stato depositato correttamente
     }
 
     @Test
     public void testPreleva() {
-        conto.deposita(100.0); // Deposito iniziale per garantire fondi sufficienti
-        conto.preleva(30.0);
-        assertEquals(70.0, conto.getBanca(), 0.01);
-        assertEquals(130.0, conto.getPortafoglio(), 0.01);
+        conto.deposita(100.0); // Deposito iniziale
+        conto.preleva(30.0); // Prelievo di 30.0
+        assertEquals(70.0, conto.getBanca(), 0.01); // Verifica che il saldo in banca sia 70.0
+        assertEquals(30.0, conto.getPortafoglio(), 0.01); // Verifica che il saldo nel portafoglio sia 30.0
     }
 
     @Test

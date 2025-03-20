@@ -195,7 +195,7 @@ public class BankGUI extends JFrame {
                 String sPrelevare = JOptionPane.showInputDialog(BankGUI.this, "Inserisci l'importo da prelevare:");
                 if (sPrelevare != null) {
                     try {
-                        double preleva = Double.parseDouble(sPrelevare);
+                        double preleva = Math.round(Double.parseDouble(sPrelevare));
                         if (preleva > currentUser.getConto().getBanca() || preleva < 0) {
                             JOptionPane.showMessageDialog(BankGUI.this, "Operazione non valida: importo errato!");
                         } else {
@@ -219,7 +219,7 @@ public class BankGUI extends JFrame {
                 String sDepositare = JOptionPane.showInputDialog(BankGUI.this, "Inserisci l'importo da depositare:");
                 if (sDepositare != null) {
                     try {
-                        double deposita = Double.parseDouble(sDepositare);
+                        double deposita = Math.round(Double.parseDouble(sDepositare));
                         if (deposita > currentUser.getConto().getPortafoglio() || deposita < 0) {
                             JOptionPane.showMessageDialog(BankGUI.this, "Operazione non valida: importo errato!");
                         } else {
@@ -250,7 +250,7 @@ public class BankGUI extends JFrame {
                     String sInvestiti = JOptionPane.showInputDialog(BankGUI.this, "Inserisci l'importo da investire:");
                     if (sInvestiti != null) {
                         try {
-                            double importoInvestito = Double.parseDouble(sInvestiti);
+                            double importoInvestito = Math.round(Double.parseDouble(sInvestiti));
                             if (importoInvestito > currentUser.getConto().getBanca() || importoInvestito <= 0) {
                                 JOptionPane.showMessageDialog(BankGUI.this,
                                         "Importo non valido o fondi insufficienti.");

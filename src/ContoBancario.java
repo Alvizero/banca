@@ -1,5 +1,7 @@
 import java.util.Random;
 
+import org.junit.Test;
+
 public class ContoBancario {
     private double banca, portafoglio;
     private int mese, anno;
@@ -60,13 +62,13 @@ public class ContoBancario {
 
     // Operazioni sul conto
     public void preleva(double preleva) {
-        portafoglio += preleva;
-        banca -= preleva;
+        portafoglio += Math.round(preleva);
+        banca -= Math.round(preleva);
     }
 
     public void deposita(double amount) {
-        banca += amount;
-        portafoglio -= amount;
+        banca += Math.round(amount);
+        portafoglio -= Math.round(amount);
     }
 
     // Simula un investimento
