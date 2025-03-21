@@ -73,7 +73,7 @@ public class ContoBancario {
     public void investe(double importoInvestito, int investimentiMesi, Random random) {
         durataInvestimento = true;
         mesiInvestimento = investimentiMesi;
-        banca -= importoInvestito;
+        banca -= Math.round(importoInvestito);
 
         String tipoInvestimento;
         if (mesiInvestimento <= 12) {
@@ -191,7 +191,7 @@ public class ContoBancario {
 
     // Restituisce lo stato corrente del conto
     public String statoConto() {
-        return "Data: " + mese + "/" + anno + "\n" + "Soldi in banca: " + banca + "€\n" + "Soldi nel portafoglio: "
-                + portafoglio + "€\n";
+        return "Data: " + mese + "/" + anno + "\nSoldi in banca: " + banca + "€\nSoldi nel portafoglio: " + portafoglio
+                + "€\n";
     }
 }

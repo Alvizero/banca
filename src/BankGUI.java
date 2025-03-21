@@ -260,7 +260,7 @@ public class BankGUI extends JFrame {
                 if (sPrelevare != null) {
                     try {
                         double preleva = Math.round(Double.parseDouble(sPrelevare));
-                        if (preleva > currentUser.getConto().getBanca() || preleva < 0) {
+                        if (preleva > currentUser.getConto().getBanca() || preleva <= 0) {
                             JOptionPane.showMessageDialog(BankGUI.this, "Operazione non valida: importo errato!");
                         } else {
                             currentUser.getConto().preleva(preleva);
@@ -284,7 +284,7 @@ public class BankGUI extends JFrame {
                 if (sDepositare != null) {
                     try {
                         double deposita = Math.round(Double.parseDouble(sDepositare));
-                        if (deposita > currentUser.getConto().getPortafoglio() || deposita < 0) {
+                        if (deposita > currentUser.getConto().getPortafoglio() || deposita <= 0) {
                             JOptionPane.showMessageDialog(BankGUI.this, "Operazione non valida: importo errato!");
                         } else {
                             currentUser.getConto().deposita(deposita);
@@ -377,7 +377,7 @@ public class BankGUI extends JFrame {
                 JTextArea textArea = new JTextArea(storico);
                 textArea.setEditable(false);
                 JScrollPane scrollPane = new JScrollPane(textArea);
-                scrollPane.setPreferredSize(new Dimension(600, 500));
+                scrollPane.setPreferredSize(new Dimension(850, 500));
                 JOptionPane.showMessageDialog(BankGUI.this, scrollPane, "Storico Transazioni",
                         JOptionPane.INFORMATION_MESSAGE);
             }
@@ -412,7 +412,6 @@ public class BankGUI extends JFrame {
         }
     }
 
-    // Metodo main (da scommentare per l'esecuzione)
     /*
      * public static void main(String[] args) {
      * SwingUtilities.invokeLater(new Runnable(){
