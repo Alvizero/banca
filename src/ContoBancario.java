@@ -1,7 +1,5 @@
 import java.util.Random;
 
-import org.junit.Test;
-
 public class ContoBancario {
     private double banca, portafoglio;
     private int mese, anno;
@@ -149,21 +147,21 @@ public class ContoBancario {
     public void fineInvestimento() {
         if (durataInvestimento) {
             mese += mesiInvestimento;
-    
+
             // Correggere il passaggio all'anno successivo
             while (mese > 12) {
                 mese -= 12;
                 anno++;
             }
-    
+
             portafoglio += (100 * mesiInvestimento);
-    
+
             if (!rosso) {
                 banca += Math.round(saldoFinale * 100.0) / 100.0;
             } else {
                 banca -= Math.round(saldoFinale * 100.0) / 100.0;
             }
-    
+
             durataInvestimento = false;
             mesiInvestimento = 0;
             saldoFinale = 0.0;
@@ -172,7 +170,7 @@ public class ContoBancario {
             rosso = false;
         }
     }
-    
+
     // Avanza di un mese
     public void nextMonth() {
         mese++;
@@ -180,7 +178,11 @@ public class ContoBancario {
 
         if (durataInvestimento && mesiInvestimento > 0) {
             mesiInvestimento--;
+            if (mesiInvestimento == 0) {
+                fineInvestimento(); // Concludi automaticamente l'investimento se è scaduto
+            }
         }
+
         if (mese > 12) {
             mese = mese - 12;
             anno++;

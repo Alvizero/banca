@@ -60,11 +60,20 @@ public class BankGUI extends JFrame {
         JPanel header = new JPanel();
         header.setBackground(new Color(10, 60, 120)); // Blu scuro istituzionale
         header.setLayout(new BorderLayout());
-        JLabel title = new JLabel("Banca Sicura", SwingConstants.CENTER);
+
+        JLabel title = new JLabel("Banca di Alvise Sacconato & Alessandro Zago", SwingConstants.CENTER);
         title.setForeground(Color.WHITE);
         title.setFont(new Font("SansSerif", Font.BOLD, 24));
-        title.setBorder(new EmptyBorder(10, 0, 10, 0));
-        header.add(title, BorderLayout.CENTER);
+        title.setBorder(new EmptyBorder(10, 0, 5, 0));
+
+        JLabel subtitle = new JLabel("Gestione sicura e affidabile del tuo conto", SwingConstants.CENTER);
+        subtitle.setForeground(Color.LIGHT_GRAY);
+        subtitle.setFont(new Font("SansSerif", Font.ITALIC, 16));
+        subtitle.setBorder(new EmptyBorder(0, 0, 10, 0));
+
+        header.add(title, BorderLayout.NORTH);
+        header.add(subtitle, BorderLayout.SOUTH);
+
         return header;
     }
 
@@ -403,6 +412,7 @@ public class BankGUI extends JFrame {
         }
     }
 
+    // Metodo main (da scommentare per l'esecuzione)
     /*
      * public static void main(String[] args) {
      * SwingUtilities.invokeLater(new Runnable(){

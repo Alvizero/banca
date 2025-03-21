@@ -86,3 +86,49 @@
 20/03/2025 17:15 - Prelievo: 100.0€ (Banca: 64438.72, Portafoglio: 100.0)
 20/03/2025 17:15 - Deposito: 100.0€ (Banca: 64538.72, Portafoglio: 0.0)
 20/03/2025 17:16 - Prelievo: 30.0€ (Banca: 70.0, Portafoglio: 30.0)
+20/03/2025 19:37 - Prelievo: 22.0€ (Banca: 48.0, Portafoglio: 52.0)
+20/03/2025 19:37 - Deposito: 2.0€ (Banca: 50.0, Portafoglio: 50.0)
+21/03/2025 08:17 - Investimento iniziato: 20.0€ per 3 mesi
+21/03/2025 08:17 - Avanzamento mese: Data: 7/2033 | Soldi in banca: 30.0€ | Soldi nel portafoglio: 150.0€ | 
+21/03/2025 08:17 - Avanzamento mese: Data: 8/2033 | Soldi in banca: 30.0€ | Soldi nel portafoglio: 250.0€ | 
+21/03/2025 08:17 - Avanzamento mese: Data: 9/2033 | Soldi in banca: 30.0€ | Soldi nel portafoglio: 350.0€ | 
+21/03/2025 08:17 - Avanzamento mese: Data: 10/2033 | Soldi in banca: 30.0€ | Soldi nel portafoglio: 450.0€ | 
+21/03/2025 08:17 - Avanzamento mese: Data: 11/2033 | Soldi in banca: 30.0€ | Soldi nel portafoglio: 550.0€ | 
+21/03/2025 08:17 - Avanzamento mese: Data: 12/2033 | Soldi in banca: 30.0€ | Soldi nel portafoglio: 650.0€ | 
+21/03/2025 08:17 - Avanzamento mese: Data: 1/2034 | Soldi in banca: 30.0€ | Soldi nel portafoglio: 750.0€ | 
+21/03/2025 08:17 - Avanzamento mese: Data: 2/2034 | Soldi in banca: 30.0€ | Soldi nel portafoglio: 850.0€ | 
+21/03/2025 08:17 - Avanzamento mese: Data: 3/2034 | Soldi in banca: 30.0€ | Soldi nel portafoglio: 950.0€ | 
+21/03/2025 08:17 - Avanzamento mese: Data: 4/2034 | Soldi in banca: 30.0€ | Soldi nel portafoglio: 1050.0€ | 
+21/03/2025 08:17 - Investimento concluso.
+21/03/2025 09:13 - Investimento iniziato: 20.0€ per 3 mesi
+21/03/2025 09:13 - Avanzamento mese: Data: 5/2034 | Soldi in banca: 30.369999999999997€ | Soldi nel portafoglio: 1150.0€ | 
+21/03/2025 09:13 - Avanzamento mese: Data: 6/2034 | Soldi in banca: 30.369999999999997€ | Soldi nel portafoglio: 1250.0€ | 
+21/03/2025 09:13 - Avanzamento mese: Data: 7/2034 | Soldi in banca: 51.56€ | Soldi nel portafoglio: 1350.0€ | 
+21/03/2025 09:13 - Avanzamento mese: Data: 8/2034 | Soldi in banca: 51.56€ | Soldi nel portafoglio: 1450.0€ | 
+21/03/2025 09:14 - Avanzamento mese: Data: 9/2034 | Soldi in banca: 51.56€ | Soldi nel portafoglio: 1550.0€ | 
+21/03/2025 09:14 - Investimento iniziato: 10.0€ per 3 mesi
+21/03/2025 09:14 - Avanzamento mese: Data: 10/2034 | Soldi in banca: 41.56€ | Soldi nel portafoglio: 1650.0€ | 
+21/03/2025 09:14 - Avanzamento mese: Data: 11/2034 | Soldi in banca: 41.56€ | Soldi nel portafoglio: 1750.0€ | 
+21/03/2025 09:14 - Avanzamento mese: Data: 12/2034 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 1850.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 1/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 1950.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 2/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 2050.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 3/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 2150.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 4/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 2250.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 5/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 2350.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 6/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 2450.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 7/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 2550.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 8/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 2650.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 9/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 2750.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 10/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 2850.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 11/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 2950.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 12/2035 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 3050.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 1/2036 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 3150.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 2/2036 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 3250.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 3/2036 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 3350.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 4/2036 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 3450.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 5/2036 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 3550.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 6/2036 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 3650.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 7/2036 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 3750.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 8/2036 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 3850.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 9/2036 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 3950.0€ | 
+21/03/2025 09:15 - Avanzamento mese: Data: 10/2036 | Soldi in banca: 51.74€ | Soldi nel portafoglio: 4050.0€ | 

@@ -11,6 +11,8 @@ public class Utente {
         this.conto = new ContoBancario();
     }
 
+    // Getter e Setter
+
     public String getNome() {
         return nome;
     }
